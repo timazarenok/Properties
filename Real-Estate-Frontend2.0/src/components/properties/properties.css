@@ -1,0 +1,10 @@
+.card-list {
+  margin: auto;
+  width: 80%;
+  list-style: none;
+}
+
+.card-list li {
+  display: inline-block;
+  margin: 10px;
+}
