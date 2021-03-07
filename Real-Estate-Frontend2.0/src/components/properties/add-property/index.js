@@ -10,11 +10,11 @@ class AddProperty extends Component {
       name: "",
       description: "",
       address: "",
-      price: null,
-      square: null,
-      number_of_bedrooms: null,
-      number_of_bathrooms: null,
-      number_of_car_parking: null,
+      price: 0,
+      square: 0,
+      number_of_bedrooms: 0,
+      number_of_bathrooms: 0,
+      number_of_car_parking: 0,
     };
   }
 
@@ -44,16 +44,15 @@ class AddProperty extends Component {
           name: "",
           description: "",
           address: "",
-          price: null,
-          square: null,
-          number_of_bedrooms: null,
-          number_of_bathrooms: null,
-          number_of_car_parking: null,
+          price: 0,
+          square: 0,
+          number_of_bedrooms: 0,
+          number_of_bathrooms: 0,
+          number_of_car_parking: 0,
         })
-        this.props.history.push("/properties")
       })
       .catch((err) => {
-        console.log("Error in Inquiry!");
+        console.log(err);
       });
   };
 
@@ -93,6 +92,8 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-left">
+                <span class="text-muted">Price</span>
+                <br/>
                 <input
                   type="number"
                   value={this.state.price}
@@ -106,6 +107,8 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-rght">
+                <span class="text-muted">Number of bedrooms</span>
+                <br/>
                 <input
                   type="number"
                   value={this.state.number_of_bedrooms}
@@ -119,6 +122,8 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-left">
+                <span class="text-muted">Number of car parking</span>
+                <br/>
                 <input
                   type="number"
                   value={this.state.number_of_car_parking}
@@ -132,6 +137,8 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-rght">
+                <span class="text-muted">Number of bathrooms</span>
+                <br/>
                 <input
                   type="number"
                   value={this.state.number_of_bathrooms}
@@ -145,6 +152,8 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-left">
+                <span class="text-muted">Square</span>
+                <br/>
                 <input
                   type="number"
                   value={this.state.square}
@@ -160,7 +169,7 @@ class AddProperty extends Component {
               <div className="input-w3ls">
                 <textarea
                   placeholder="Description"
-                  value={this.state.message}
+                  value={this.state.description}
                   onChange={this.onChange}
                   name="description"
                   id="description"

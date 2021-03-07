@@ -85,6 +85,12 @@ class ContactUs extends Component {
                 />
               </div>
               <div className="input-w3ls w3ls-left">
+                <span className="text-muted">Email</span>
+              </div>
+              <div className="input-w3ls w3ls-rght">
+                <span className="text-muted">Subject</span>
+              </div>
+              <div className="input-w3ls w3ls-left">
                 <input
                   type="email"
                   value={this.state.email}
@@ -100,7 +106,6 @@ class ContactUs extends Component {
                 <input
                   type="text"
                   value={this.state.subject || subject}
-                  onChange={this.onChange}
                   className="name"
                   name="subject"
                   placeholder="Subject"

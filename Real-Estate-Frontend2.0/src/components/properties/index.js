@@ -27,14 +27,33 @@ class Properties extends Component {
       });
   }
 
+  componentDidUpdate() {
+    axios
+      .get("/api/properties")
+      .then((response) => {
+        this.setState({ data: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   onDeleteClick(id) {
     axios
       .delete("/api/properties/" + id)
       .then((res) => {
-        this.props.history.push("/dashboard");
+        console.log(res)
       })
       .catch((err) => {
         console.log("Error from delete" + err);
+      });
+    axios
+      .get("/api/properties")
+      .then((response) => {
+        this.setState({ data: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
       });
   }
 

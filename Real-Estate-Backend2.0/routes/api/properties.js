@@ -45,7 +45,7 @@ router.delete("/:id", (req, res) => {
       id: req.params.id
     }
   })
-    .then((property) => res.json({ mgs: "Property entry deleted successfully" }))
+    .then((property) => res.json({ mgs: "Property entry deleted successfully", properties: Property.findAll() }))
     .catch((err) => res.status(404).json({ error: "No such property" }));
 });
 

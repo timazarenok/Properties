@@ -6,6 +6,8 @@ import axios from "axios";
 import { logoutUser } from "../../actions/authActions";
 import InnerPageBanner from "../layout/InnerPageBanner";
 
+import './dashboard.css'
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,17 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    axios
+      .get("/api/inquiries")
+      .then((response) => {
+        this.setState({ inquiries: response.data });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  componentDidUpdate() {
     axios
       .get("/api/inquiries")
       .then((response) => {
