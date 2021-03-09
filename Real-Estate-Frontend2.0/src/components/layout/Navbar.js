@@ -45,16 +45,6 @@ class Navbar extends Component {
                       </Link>
                       {/* <a className="nav-link" href="/">Home</a> */}
                     </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="/">
-                        О нас
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link" href="/">
-                        Сервисы
-                      </a>
-                    </li>
                     {/* <li className="dropdown nav-item">
                       <a
                         href="#"

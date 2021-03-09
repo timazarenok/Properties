@@ -33,79 +33,79 @@ class Footer extends Component {
                     <a href="index.html">Lanka Land</a>
                   </h2>
                   <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem atus error sit volupt unde.
+                    Сайт создан для удобного поиска дешевой недвижимости
+                    и последующей ее аренды
                   </p>
                 </div>
                 <div className="col-lg-7 col-md-9 mt-lg-0 mt-4 row w3_agile-footer1 f2">
                   <div className="col-md-4 col-sm-4 mb-sm-0 mb-4 inner-li">
-                    <h5 className="mb-3">Partners</h5>
+                    <h5 className="mb-3">Партнеры</h5>
                     <ul className="w3ls-footer-bottom-list">
                       <li>
                         <a className="page-scroll scroll" href="#about">
-                          Estate Group
+                          Дизайнеры
                         </a>
                       </li>
                       <li>
                         <a className="page-scroll scroll" href="#pricing">
-                          Developers
+                          Разработчики
                         </a>
                       </li>
                       <li>
                         <a className="page-scroll scroll" href="#gallery">
-                          Builders
+                          Строители
                         </a>
                       </li>
                       <li>
                         <a className="page-scroll scroll" href="#gallery">
-                          Constructors
+                          Конструкторы
                         </a>
                       </li>
                     </ul>
                   </div>
                   <div className="col-md-4 col-sm-4 mb-sm-0 mb-4 inner-li">
-                    <h5 className="mb-3">About us</h5>
+                    <h5 className="mb-3">О нас</h5>
                     <ul className="w3ls-footer-bottom-list">
                       <li>
-                        <a href="#">History</a>
+                        <a href="#">История</a>
                       </li>
                       <li>
-                        <a href="#">Terms of use</a>
+                        <a href="#">Правила пользования</a>
                       </li>
                       <li>
-                        <a href="#">Privacy policy</a>
+                        <a href="#">Приватная политика</a>
                       </li>
                       <li>
-                        <a href="#">Blog</a>
+                        <a href="#">Блог</a>
                       </li>
                     </ul>
                   </div>
                   <div className="col-md-4 col-sm-4 col-xs-4 inner-li">
-                    <h5 className="mb-3">support</h5>
+                    <h5 className="mb-3">Поддержка</h5>
                     <ul className="w3ls-footer-bottom-list">
                       <li>
-                        <a href="#">24/7 service</a>
+                        <a href="#">24/7 Поддержка</a>
                       </li>
                       <li>
                         <a href="#">FAQ</a>
                       </li>
                       <li>
-                        <a href="#">media</a>
+                        <a href="#">Медиа</a>
                       </li>
                     </ul>
                   </div>
                 </div>
                 <div className="col-lg-2 col-md-3 mt-lg-0 mt-4 w3_agile-footer1 f3">
-                  <h5 className="mb-3">Need Help?</h5>
+                  <h5 className="mb-3">Нужна помощь?</h5>
                   <ul className="footer-social-icons">
                     <li>
-                      <a href="#">Contact us</a>
+                      <a href="#">Свяжитесь с нами</a>
                     </li>
                     <li>
-                      <a href="#">knowledge base</a>
+                      <a href="#">Информационная база</a>
                     </li>
                     <li>
-                      <a href="#">Pdf document</a>
+                      <a href="#">PDF документ</a>
                     </li>
                   </ul>
                 </div>

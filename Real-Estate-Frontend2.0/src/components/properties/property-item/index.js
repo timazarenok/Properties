@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import './property-item.css'
 
@@ -37,6 +38,11 @@ const PropertyItem = ({id, name, image, description, square, number_of_bedrooms,
           </p>
         </div>
       </div>
+      <button className="btn">
+        <Link to={`/property/${id}/edit`}>
+          <i class="far fa-edit" />
+        </Link>
+      </button>
       <button className="btn" onClick={() => onDeleteClick(id)}>
         <i className="far fa-trash-alt" style={{ color: "red" }}/>
       </button>

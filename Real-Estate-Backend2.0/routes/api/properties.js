@@ -52,8 +52,19 @@ router.delete("/:id", (req, res) => {
 // @route PUT api/property/:id
 // @description Update property
 // @access Public
-router.put("/property/:id", (req, res) => {
-  Property.findByIdAndUpdate(req.params.id, req.body)
+router.put("/property/:id/edit", (req, res) => {
+  Property.update({
+    name: req.body.name,
+    description: req.body.description,
+    address: req.body.address,
+    price: req.body.price,
+    square: req.body.square,
+    number_of_bathrooms: req.body.number_of_bathrooms,
+    number_of_bedrooms: req.body.number_of_bedrooms,
+    number_of_car_parking: req.body.number_of_car_parking,
+  }, 
+    { where: { id: req.params.id }
+  })
     .then((property) => res.json({ msg: "Updated successfully" }))
     .catch((err) =>
       res.status(400).json({ error: "Unable to update the Database" })

@@ -63,9 +63,9 @@ class AddProperty extends Component {
           <div className="container">
             <div className="heading">
               <h1 className="heading text-capitalize mb-5 pb-3">
-                <span>Add</span> Property
+                <span>Добавить</span> Объект
               </h1>
-              <h4 className="position cont">Properties</h4>
+              <h4 className="position cont">Объекты</h4>
             </div>
             <form noValidate onSubmit={this.onAddClick}>
               <div className="input-w3ls w3ls-left">
@@ -76,7 +76,7 @@ class AddProperty extends Component {
                   className="name"
                   name="name"
                   id="name"
-                  placeholder="name"
+                  placeholder="Имя"
                   required
                 />
               </div>
@@ -87,12 +87,12 @@ class AddProperty extends Component {
                   onChange={this.onChange}
                   className="name"
                   name="address"
-                  placeholder="address"
+                  placeholder="Адрес"
                   required
                 />
               </div>
               <div className="input-w3ls w3ls-left">
-                <span class="text-muted">Price</span>
+                <span class="text-muted">Цена</span>
                 <br/>
                 <input
                   type="number"
@@ -101,13 +101,13 @@ class AddProperty extends Component {
                   className="number"
                   name="price"
                   id="price"
-                  placeholder="price"
+                  placeholder="цена"
                   min="1"
                   required
                 />
               </div>
               <div className="input-w3ls w3ls-rght">
-                <span class="text-muted">Number of bedrooms</span>
+                <span class="text-muted">Количество спален</span>
                 <br/>
                 <input
                   type="number"
@@ -116,13 +116,13 @@ class AddProperty extends Component {
                   className="number"
                   name="number_of_bedrooms"
                   id="number_of_bedrooms"
-                  placeholder="number of bedrooms"
+                  placeholder="кол-во спален"
                   min="1"
                   required
                 />
               </div>
               <div className="input-w3ls w3ls-left">
-                <span class="text-muted">Number of car parking</span>
+                <span class="text-muted">Количество парковочных мест</span>
                 <br/>
                 <input
                   type="number"
@@ -131,13 +131,13 @@ class AddProperty extends Component {
                   className="number"
                   name="number_of_car_parking"
                   id="number_of_car_parking"
-                  placeholder="number of car parking"
+                  placeholder="парковочные места"
                   min="1"
                   required
                 />
               </div>
               <div className="input-w3ls w3ls-rght">
-                <span class="text-muted">Number of bathrooms</span>
+                <span class="text-muted">Количество ванных комнат</span>
                 <br/>
                 <input
                   type="number"
@@ -146,13 +146,13 @@ class AddProperty extends Component {
                   className="number"
                   name="number_of_bathrooms"
                   id="number_of_bathrooms"
-                  placeholder="number of bathrooms"
+                  placeholder="Количество ванных комнат"
                   min="1"
                   required
                 />
               </div>
               <div className="input-w3ls w3ls-left">
-                <span class="text-muted">Square</span>
+                <span class="text-muted">Площадь</span>
                 <br/>
                 <input
                   type="number"
@@ -161,14 +161,14 @@ class AddProperty extends Component {
                   className="number"
                   name="square"
                   id="square"
-                  placeholder="square"
+                  placeholder="Площадь"
                   min="1"
                   required
                 />
               </div>
               <div className="input-w3ls">
                 <textarea
-                  placeholder="Description"
+                  placeholder="Описание"
                   value={this.state.description}
                   onChange={this.onChange}
                   name="description"
@@ -178,7 +178,7 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls">
-                <input type="submit" defaultValue="Send Message" />
+                <input type="submit" defaultValue="Send Message" value="Подтвердить" />
               </div>
             </form>      
           </div>

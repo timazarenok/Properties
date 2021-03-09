@@ -17,6 +17,7 @@ import Properties from './components/properties'
 
 import ContactUs from "./components/layout/ContactUs";
 import Property from "./components/properties/property";
+import EditProperty from "./components/properties/edit-property";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -49,6 +50,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/property/:id" component={Property} />
             <Route exact path="/contactus" component={ContactUs} />
+            <Route exact path="/property/:id/edit" component={EditProperty}/>
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/properties" component={Properties} />
