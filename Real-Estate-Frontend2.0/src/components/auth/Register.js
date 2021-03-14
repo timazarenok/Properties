@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 import InnerPageBanner from "../layout/InnerPageBanner";
+
 class Register extends Component {
   constructor() {
     super();

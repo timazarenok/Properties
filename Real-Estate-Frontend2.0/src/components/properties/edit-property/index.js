@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from "axios";
 
 import './edit-property.css'
@@ -16,6 +16,14 @@ class EditProperty extends Component {
       number_of_bedrooms: 0,
       number_of_bathrooms: 0,
       number_of_car_parking: 0,
+      valid: {
+        price: false,
+        square: false,
+        number_of_bedrooms: false,
+        number_of_bathrooms: false,
+        number_of_car_parking: false
+      },
+      formValid: false
     };
   }
 
@@ -23,8 +31,8 @@ class EditProperty extends Component {
     axios
       .get("/api/properties/property/" + this.props.match.params.id)
       .then((response) => {
-        const {name, description, address, price, square, number_of_bedrooms, number_of_bathrooms, number_of_car_parking } = response.data;
-        this.setState({ 
+        const { name, description, address, price, square, number_of_bedrooms, number_of_bathrooms, number_of_car_parking } = response.data;
+        this.setState({
           name: name,
           description: description,
           address: address,
@@ -33,15 +41,57 @@ class EditProperty extends Component {
           number_of_bedrooms: number_of_bedrooms,
           number_of_bathrooms: number_of_bathrooms,
           number_of_car_parking: number_of_car_parking,
-         });
+        });
       })
       .catch(function (error) {
         console.log(error);
       });
   }
 
+  validateField(field, value) {
+    const valid = this.state.valid;
+    let priceValid = valid.price;
+    let bedroomsValid = valid.number_of_bedrooms;
+    let bathroomsValid = valid.number_of_bathrooms;
+    let carparkingValid = valid.number_of_car_parking;
+    let squareValid = valid.square;
+
+    switch (field) {
+      case 'price':
+        priceValid = value >= 0
+        break;
+      case 'number_of_bedrooms':
+        bedroomsValid = value >= 0
+        break;
+      case 'number_of_bathrooms':
+        bathroomsValid = value >= 0
+        break;
+      case 'number_of_car_parking':
+        carparkingValid = value >= 0
+        break;
+      case 'square':
+        squareValid = value >= 0
+        break;
+    }
+    this.setState({
+      valid: {
+        price: priceValid,
+        square: squareValid,
+        number_of_bedrooms: bedroomsValid,
+        number_of_bathrooms: bathroomsValid,
+        number_of_car_parking: carparkingValid
+      }
+    }, this.validateForm)
+  }
+
+  validateForm() {
+    const { price, square, number_of_bedrooms, number_of_bathrooms, number_of_car_parking } = this.state.valid;
+    this.setState({formValid: price && square && number_of_bedrooms && number_of_bathrooms && number_of_car_parking});
+  }
+
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    this.setState({ [name]: value }, this.validateField(name, value));
   };
 
   onAddClick = (e) => {
@@ -72,7 +122,7 @@ class EditProperty extends Component {
   render() {
     return (
       <>
-        <InnerPageBanner/>
+        <InnerPageBanner />
         <section className="contact_form py-5">
           <div className="container">
             <div className="heading">
@@ -107,7 +157,7 @@ class EditProperty extends Component {
               </div>
               <div className="input-w3ls w3ls-left">
                 <span class="text-muted">Цена</span>
-                <br/>
+                <br />
                 <input
                   type="number"
                   value={this.state.price}
@@ -122,7 +172,7 @@ class EditProperty extends Component {
               </div>
               <div className="input-w3ls w3ls-rght">
                 <span class="text-muted">Количество спален</span>
-                <br/>
+                <br />
                 <input
                   type="number"
                   value={this.state.number_of_bedrooms}
@@ -137,7 +187,7 @@ class EditProperty extends Component {
               </div>
               <div className="input-w3ls w3ls-left">
                 <span class="text-muted">Количество парковочных мест</span>
-                <br/>
+                <br />
                 <input
                   type="number"
                   value={this.state.number_of_car_parking}
@@ -152,7 +202,7 @@ class EditProperty extends Component {
               </div>
               <div className="input-w3ls w3ls-rght">
                 <span class="text-muted">Количество ванных комнат</span>
-                <br/>
+                <br />
                 <input
                   type="number"
                   value={this.state.number_of_bathrooms}
@@ -167,7 +217,7 @@ class EditProperty extends Component {
               </div>
               <div className="input-w3ls w3ls-left">
                 <span class="text-muted">Площадь</span>
-                <br/>
+                <br />
                 <input
                   type="number"
                   value={this.state.square}
@@ -191,9 +241,9 @@ class EditProperty extends Component {
                 />
               </div>
               <div className="input-w3ls">
-                <input type="submit" value="Подтвердить" />
+                <input type="submit" disabled={!this.state.formValid}>Подтвердить</input>
               </div>
-            </form>      
+            </form>
           </div>
         </section>
       </>

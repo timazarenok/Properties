@@ -19,6 +19,8 @@ import ContactUs from "./components/layout/ContactUs";
 import Property from "./components/properties/property";
 import EditProperty from "./components/properties/edit-property";
 
+
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth

@@ -15,12 +15,16 @@ class AddProperty extends Component {
       number_of_bedrooms: 0,
       number_of_bathrooms: 0,
       number_of_car_parking: 0,
+      valid: {
+        price: false,
+        square: false,
+        number_of_bedrooms: false,
+        number_of_bathrooms: false,
+        number_of_car_parking: false
+      },
+      formValid: false
     };
   }
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
 
   onAddClick = (e) => {
     e.preventDefault();
@@ -48,12 +52,58 @@ class AddProperty extends Component {
           square: 0,
           number_of_bedrooms: 0,
           number_of_bathrooms: 0,
-          number_of_car_parking: 0,
+          number_of_car_parking: 0
         })
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  validateField(field, value) {
+    const valid = this.state.valid;
+    let priceValid = valid.price;
+    let bedroomsValid = valid.number_of_bedrooms;
+    let bathroomsValid = valid.number_of_bathrooms;
+    let carparkingValid = valid.number_of_car_parking;
+    let squareValid = valid.square;
+
+    switch (field) {
+      case 'price':
+        priceValid = value >= 0
+        break;
+      case 'number_of_bedrooms':
+        bedroomsValid = value >= 0
+        break;
+      case 'number_of_bathrooms':
+        bathroomsValid = value >= 0
+        break;
+      case 'number_of_car_parking':
+        carparkingValid = value >= 0
+        break;
+      case 'square':
+        squareValid = value >= 0
+        break;
+    }
+    this.setState({
+      valid: {
+        price: priceValid,
+        square: squareValid,
+        number_of_bedrooms: bedroomsValid,
+        number_of_bathrooms: bathroomsValid,
+        number_of_car_parking: carparkingValid
+      }
+    }, this.validateForm)
+  }
+
+  validateForm() {
+    const { price, square, number_of_bedrooms, number_of_bathrooms, number_of_car_parking } = this.state.valid;
+    this.setState({formValid: price && square && number_of_bedrooms && number_of_bathrooms && number_of_car_parking});
+  }
+
+  onChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value }, this.validateField(name, value));
   };
 
   render() {
@@ -178,7 +228,7 @@ class AddProperty extends Component {
                 />
               </div>
               <div className="input-w3ls">
-                <input type="submit" defaultValue="Send Message" value="Подтвердить" />
+                <button type="submit" disabled={!this.state.formValid}>Подтвердить</button>
               </div>
             </form>      
           </div>
